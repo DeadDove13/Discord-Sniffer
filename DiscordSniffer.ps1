@@ -13,34 +13,34 @@ function Get-FileType {
     $fileSignature = ($FileBytes[0..3] | ForEach-Object { $_.ToString("X2") }) -join ' '
 
     switch ($fileSignature) {
-        'FF D8 FF E0' { return "jpg" }
-        '89 50 4E 47' { return "png" }
-        '47 49 46 38' { return "gif" }
-        '25 50 44 46' { return "pdf" }
-        '50 4B 03 04' { return "zip" }
-        '42 4D'       { return "bmp" }
-        '49 44 33'    { return "mp3" }
-        '52 49 46 46' { return "avi" }
-        '00 00 01 BA' { return "mpg" }
-        '1F 8B 08'    { return "gz" }
-        '25 21 50 53' { return "ps" }
-        'D0 CF 11 E0' { return "doc" }
-        '7F 45 4C 46' { return "elf" }
-        '52 61 72 21' { return "rar" }
-        '3C 3F 78 6D' { return "xml" }
-        '50 4B 07 08' { return "docx" }
-        '50 4B 05 06' { return "jar" }
-        '50 4B 03 04' { return "xlsx" }
-        '7B 5C 72 74' { return "rtf" }
-        '38 42 50 53' { return "psd" }
-        '66 74 79 70' { return "mp4" }
-        '00 01 00 00' { return "ico" }
-        '4F 67 67 53' { return "ogg" }
-        '66 4C 61 43' { return "flac" }
-        '25 50 58 20' { return "pxd" }
-        'FF FB'       { return "mp3" }
-        '4D 5A'       { return "exe" }
-        default       { return $null }
+        'FF D8 FF E0' { return "jpg" }       # JPEG image
+        '89 50 4E 47' { return "png" }       # PNG image
+        '47 49 46 38' { return "gif" }       # GIF image
+        '25 50 44 46' { return "pdf" }       # PDF document
+        '50 4B 03 04' { return "zip" }       # ZIP archive
+        '42 4D'       { return "bmp" }       # BMP image
+        '49 44 33'    { return "mp3" }       # MP3 audio
+        '52 49 46 46' { return "avi" }       # AVI video
+        '00 00 01 BA' { return "mpg" }       # MPEG video
+        '1F 8B 08'    { return "gz" }        # GZIP compressed file
+        '25 21 50 53' { return "ps" }        # PostScript file
+        'D0 CF 11 E0' { return "doc" }       # DOC (Microsoft Word)
+        '7F 45 4C 46' { return "elf" }       # ELF (Executable and Linkable Format)
+        '52 61 72 21' { return "rar" }       # RAR archive
+        '3C 3F 78 6D' { return "xml" }       # XML document
+        '50 4B 07 08' { return "docx" }      # DOCX (Microsoft Word)
+        '50 4B 05 06' { return "jar" }       # JAR (Java archive)
+        '50 4B 03 04' { return "xlsx" }      # XLSX (Microsoft Excel)
+        '7B 5C 72 74' { return "rtf" }       # RTF (Rich Text Format)
+        '38 42 50 53' { return "psd" }       # PSD (Adobe Photoshop)
+        '66 74 79 70' { return "mp4" }       # MP4 video
+        '00 01 00 00' { return "ico" }       # ICO (Icon file)
+        '4F 67 67 53' { return "ogg" }       # OGG (Audio or video file)
+        '66 4C 61 43' { return "flac" }      # FLAC (Audio file)
+        '25 50 58 20' { return "pxd" }       # PXD (Pixel data)
+        'FF FB'       { return "mp3" }       # MP3 audio (alternative signature)
+        '4D 5A'       { return "exe" }       # EXE (Executable)
+        default       { return $null }       # Default case if no match
     }
 }
 
